@@ -37,6 +37,7 @@
                 <div class="form-group">
                      <label for="correo">Correo</label>
                      <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@gmail.com" required>
+                     <small class="form-text text-muted">Coloca tu correo electronico</small>
                 </div>
 
                 <div class="form-group">
