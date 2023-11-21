@@ -48,63 +48,101 @@ $dato = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($dato as $registro) { ?>
-                                <tr>
-                                    <td> <?php echo $registro->Nombre; ?> </td>
-                                    <td> <?php echo $registro->Apellidos; ?> </td>
-                                    <td> <?php echo $registro->Numero; ?> </td>
-                                    <td> <?php echo $registro->Correo; ?> </td>
-                                    <td> <?php echo $registro->Direccion; ?> </td>
-                                    <td> <?php echo $registro->Servicio; ?> </td>
-                                    <td> <?php echo $registro->Fecha; ?> </td>
-                                    <td> <?php echo $registro->Hora; ?> </td>
-                                    <td> <?php echo $registro->MensajeAdicional; ?> </td>
-                                    <td>
-                                        <?php
-                                        $estado = $registro->Estado;
-                                        $clase_color = '';
+                           
 
-                                        switch ($estado) {
-                                            case 'Pendiente':
-                                                $clase_color = 'text-warning'; // Amarillo para Pendiente
-                                                break;
-                                            case 'Cancelado':
-                                                $clase_color = 'text-danger'; // Rojo para Cancelado
-                                                break;
-                                            case 'Confirmado':
-                                                $clase_color = 'text-success'; // Verde para Confirmado
-                                                break;
-                                            default:
-                                                $clase_color = ''; // Sin clase de color por defecto
-                                                break;
-                                        }
-                                        ?>
 
-                                        <b class="<?php echo $clase_color; ?>"><?php echo $estado; ?></b>
+                            <?php
+                                $index = 0;
+                                $numRegistros = count($dato);
+                                
+                                while ($index < $numRegistros) {
+                                    $registro = $dato[$index];
+                                ?>
+                                    <tr>
+                                        <td> <?php echo $registro->Nombre; ?> </td>
+                                        <td> <?php echo $registro->Apellidos; ?> </td>
+                                        <td> <?php echo $registro->Numero; ?> </td>
+                                        <td> <?php echo $registro->Correo; ?> </td>
+                                        <td> <?php echo $registro->Direccion; ?> </td>
+                                        <td> <?php echo $registro->Servicio; ?> </td>
+                                        <td> <?php echo $registro->Fecha; ?> </td>
+                                        <td> <?php echo $registro->Hora; ?> </td>
+                                        <td> <?php echo $registro->MensajeAdicional; ?> </td>
+                                        <td>
+                                            <?php
+                                            $estado = $registro->Estado;
+                                            $clase_color = '';
+                                
+                                            switch ($estado) {
+                                                case 'Pendiente':
+                                                    $clase_color = 'text-warning'; // Amarillo para Pendiente
+                                                    break;
+                                                case 'Cancelado':
+                                                    $clase_color = 'text-danger'; // Rojo para Cancelado
+                                                    break;
+                                                case 'Confirmado':
+                                                    $clase_color = 'text-success'; // Verde para Confirmado
+                                                    break;
+                                                default:
+                                                    $clase_color = ''; // Sin clase de color por defecto
+                                                    break;
+                                            }
+                                            ?>
+
+                        <b class="<?php echo $clase_color; ?>"><?php echo $estado; ?></b>
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#confirmDelete<?php echo $registro->ID; ?>" class="btn btn-sm btn-danger mr-1">ELIMINAR</a>
+            
+                            <div class="modal fade" id="confirmDelete<?php echo $registro->ID; ?>" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmDeleteLabel">Confirmar Eliminación</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ¿Está seguro de que desea eliminar este registro? <?php echo $registro->Nombre . ' ' . $registro->Apellidos ?>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <a href="delete/delete.php?id=<?php echo $registro->ID; ?>" class="btn btn-danger">Eliminar</a>
+                                                    </div>
+                                                       </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                <div class="d-flex">
+                                            <a href="update/form_update.php?id=<?php echo $registro->ID; ?>" class="btn btn-sm btn-info mr-1">EDITAR</a>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                        <a href="#" class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#confirmDelete" class="btn btn-sm btn-danger mr-1">ELIMINAR</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">                                       
-                                        <a href="update/form_update.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-info mr-1">EDITAR</a>
+                                            <a href="update/send_msg.php?id=<?php echo $registro->ID; ?>" class="btn btn-sm btn-success mr-1">NOTIFICAR</a>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                        <a href="update/send_msg.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-success mr-1">NOTIFICAR</a>
+                                            <a href="update/Email_msg.php?id=<?php echo $registro->ID; ?>" class="btn btn-sm btn-success mr-1">ENVIAR</a>
                                         </div>
                                     </td>
-                                    <td>
-                                        <div class="d-flex">
-                                        <a href="update/Email_msg.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-success mr-1">ENVIAR</a>
-                                        </div>
-                                    </td>
-
                                 </tr>
-                            <?php } ?>
+                            <?php
+                                $index++;
+                            }
+                            ?>
+
+
+
+
+
+
+
                         </tbody>
                     </table>
                 </div>

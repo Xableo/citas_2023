@@ -52,18 +52,10 @@ $persona = $sentencia->fetch(PDO::FETCH_OBJ);
             </div>
 
             <div class="form-row">
-            <label for="servicio">Selecciona un servicio: </label>
-                <select class="custom-select" id="servicio" name="servicio" value="<?php echo ($persona->Servicio); ?>">
-                <option value="" selected>Elige...</option>
-                <option value="Instalación de cámaras">Instalación de cámaras</option>
-                <option value="Instalación de cercos eléctricos">Instalación de cercos eléctricos</option>
-                <option value="Instalación de paneles solares">Instalación de paneles solares</option>
-                <option value="Instalación de videoporteros">Instalación de videoporteros - Interfon</option>
-                <option value="Cotización en Domicilios">Cotización en Domicilios</option>
-                <option value="Cotización-Computación e Impresoras">Cotización-Computación e Impresoras</option>
-            </select>           
-        </div>
-
+                <label for="servicio" class="col-form-label">Servicio:</label>
+                <input type="text" name="servicio" class="form-control" value="<?php echo ($persona->Servicio); ?>">
+            </div>
+            
             <div class="form-row">
                 <label for="fecha" class="col-form-label">Fecha:</label>
                 <input type="date" name="fecha" class="form-control" value="<?php echo $persona->Fecha; ?>">
