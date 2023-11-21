@@ -35,16 +35,16 @@ $dato = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 <th>NUMERO</th>
                                 <th>CORREO</th>
                                 <th>DIRECCION</th>
-                                <th>EQUIPO</th>
-                                <th>CONTRASEÑA</th>
-                                <th>RASGOS</th>
-                                <th>ACCESORIOS</th>
                                 <th>SERVICIOS</th>
                                 <th>FECHA</th>
                                 <th>HORA</th>
                                 <th>MENSAJE</th>
                                 <th>ACCIONES</th>
+                                <th>ELIMINAR</th>
                                 <th>EDITAR</th>
+                                <th>NOTIFICAR</th>
+                                <th>CORREO</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -55,10 +55,6 @@ $dato = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     <td> <?php echo $registro->Numero; ?> </td>
                                     <td> <?php echo $registro->Correo; ?> </td>
                                     <td> <?php echo $registro->Direccion; ?> </td>
-                                    <td> <?php echo $registro->Equipos; ?> </td>
-                                    <td> <?php echo $registro->Contraseña; ?> </td>
-                                    <td> <?php echo $registro->Rasgos; ?> </td>
-                                    <td> <?php echo $registro->Accesorios; ?> </td>
                                     <td> <?php echo $registro->Servicio; ?> </td>
                                     <td> <?php echo $registro->Fecha; ?> </td>
                                     <td> <?php echo $registro->Hora; ?> </td>
@@ -88,12 +84,25 @@ $dato = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                        <a href="#" class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#confirmDelete" class="btn btn-sm btn-danger mr-1">Eliminar</a>
-                                        <a href="update/form_update.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-info mr-1">Editar</a>
-                                        <a href="update/send_msg.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-info mr-1">Mensaje</a>
-
+                                        <a href="#" class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#confirmDelete" class="btn btn-sm btn-danger mr-1">ELIMINAR</a>
                                         </div>
                                     </td>
+                                    <td>
+                                        <div class="d-flex">                                       
+                                        <a href="update/form_update.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-info mr-1">EDITAR</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                        <a href="update/send_msg.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-success mr-1">NOTIFICAR</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                        <a href="update/Email_msg.php?id=<?php echo $registro->ID;?>" class="btn btn-sm btn-success mr-1">ENVIAR</a>
+                                        </div>
+                                    </td>
+
                                 </tr>
                             <?php } ?>
                         </tbody>

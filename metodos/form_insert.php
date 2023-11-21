@@ -35,19 +35,21 @@
                 </div>
 
                 <div class="form-group">
-                     <label for="correo">Correo</label>
+                     <label for="correo">Correo Electronico</label>
                      <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@gmail.com" required>
                      <small class="form-text text-muted">Coloca tu correo electronico</small>
                 </div>
 
                 <div class="form-group">
-                      <label for="direccion">Direccion</label>
+                      <label for="direccion">Direccion y codigo postal</label>
                         <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Escribe de direccion" required>
                         <small class="form-text text-muted">Coloca tus direccion.</small>
                 </div>
-                <!-- Fin de Campos de Datos Personales -->
-                </div>
-                </div>
+             </div>
+         </div>
+ <!-- Fin de Campos de Datos Personales -->
+
+ <!-- Datos de equipos -->
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body"></div>
                 </div>
@@ -55,65 +57,46 @@
                 <div class="accordion-item">
                  <h2 class="accordion-header" id="flush-headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                     Datos de tu equipo
+                     Servicios   
                     </button>
                  </h2>
+                 
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                <!-- Datos de equipos -->
-                <div class="form-group">
-                    <label for="equipos">Nombre del equipo *</label>
-                    <input type="text" class="form-control" id="equipos" name="equipos" placeholder="Escribe el nombre del equipo" required>
-                    <small class="form-text text-muted">Coloca tu nombre del equipo.</small>
-                </div>
-                <div class="form-group">
-                    <label for="contraseña">Contraseña del equipo *</label>
-                    <input type="text" class="form-control" id="contraseña" name="contraseña" placeholder="Escribe la contraseña" required>
-                    <small class="form-text text-muted">Coloca tu password.</small>
-               </div>
-               <div class="form-group">
-                     <label for="rasgos">Rasgos o fallas *</label>
-                     <input type="text" class="form-control" id="rasgos" name="rasgos" placeholder="Escribe la falla del equipo" required>
-                     <small class="form-text text-muted">Coloca la falla.</small>
-                </div>
-                <div class="form-group">
-                    <label for="accesorios">Accesorios *</label>
-                    <input type="text" class="form-control" id="accesorios" name="accesorios" placeholder="Escribe los accesorios " required>
-                    <small class="form-text text-muted">Escribe los accesorios con los que cuenta.</small>
-                </div>
                 <div class="form-group">
                     <label for="servicio">Selecciona un servicio *</label>
                     <select class="custom-select" id="servicio" name="servicio" required>
                     <option value="" selected>Elige...</option>
-                    <option value="Mantenimiento">Mantenimiento</option>
-                    <option value="Instalacion de camaras">Intalacion de camaras</option>
-                    <option value="Instalacion de Softwares">Instalacion de Softwares</option>
-                    <option value="Otros">Otros</option>
+                    <option value="Instalación de camaras">Instalación de camaras</option>
+                    <option value="Intalacion de cercos electricos">Intalacion de cercos electricos</option>
+                    <option value="Instalacion de paneles solares">Instalacion de paneles solares</option>
+                    <option value="Instalacion de videoporteros">Instalacion de videoporteros - Interfon</option>
+                    <option value="Cotizacion en Domicilios">Cotizacion en Domicilios</option>
+                    <option value="Cotizacion-Computacion e Impresoras">Cotizacion-Computacion e Impresoras</option>
                 </select>
-                </div>
-                </div>
-                </div>
-                </div>
+            </div>
+        </div>
+    </div>
+ </div>
                 <!-- Fin Datos de equipos -->
-                <div class="accordion-item">
-                 <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                     Datos de la cita
-                    </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-
-<!-- Fecha de cita -->
-     <div class="form-group">
-        <label for="fecha">Fecha:</label>
-        <input type="date" class="form-control" id="fecha" name="fecha" required>
-        <div id="mensaje-error" style="color: red;">
-    </div>
-    </div>
+<div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Datos de la cita
+                     </button>
+                        </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                     <!-- Fecha de cita -->
+                                     <div class="form-group">
+                                <label for="fecha">Fecha:</label>
+                            <input type="date" class="form-control" id="fecha" name="fecha" required>
+                        <div id="mensaje-error" style="color: red;">
+                     </div>
+                </div>
                 <div class="form-group">
-            <label for="hora">Hora:</label>
-            <select class="form-control" id="hora" name="hora" required>
+                <label for="hora">Hora:</label>
+                <select class="form-control" id="hora" name="hora" required>
                 <option value="" selected>Elige la hora</option>
                 <option value="09:00">09:00 AM</option>
                 <option value="10:00">10:00 AM</option>
@@ -131,7 +114,7 @@
         </div>
 
     <div class="form-group">
-        <label for="mensaje">Mensaje adicional  :</label>
+        <label for="mensaje">Mensaje adicional :</label>
         <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
     </div>
     <input type="hidden" name="estado" value="Pendiente">

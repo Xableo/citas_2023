@@ -14,13 +14,7 @@ $nombre = $_POST["nombre"];
 $apellidos = $_POST["apellidos"];
 $numero = $_POST["numero"];
 $correo = $_POST["correo"];
-
 $direccion = $_POST['direccion'];
-$equipos = $_POST['equipos'];
-$contraseña = $_POST['contraseña'];
-$rasgos = $_POST['rasgos'];
-$accesorios = $_POST['accesorios'];
-
 $servicio = $_POST["servicio"];
 $fecha = $_POST["fecha"];
 $hora = $_POST["hora"];
@@ -28,8 +22,8 @@ $mensaje = $_POST["mensaje"];
 $estado = $_POST["estado"];
 
 #sentencia sql para insertar registros actualizados
-$sentencia = $db->prepare("UPDATE reservas SET Nombre=?, Apellidos=?, Numero=?, Correo=?, Direccion=?, Equipos=?, Contraseña=?, Rasgos=?, Accesorios=?, Servicio=?, Fecha=?, Hora=?, MensajeAdicional=?, Estado=? WHERE ID=?;");
-$resultado = $sentencia-> execute([$nombre, $apellidos, $numero, $correo, $direccion, $equipos, $contraseña, $rasgos, $accesorios, $servicio, $fecha, $hora, $mensaje, $estado, $id2]);
+$sentencia = $db->prepare("UPDATE reservas SET Nombre=?, Apellidos=?, Numero=?, Correo=?, Direccion=?, Servicio=?, Fecha=?, Hora=?, MensajeAdicional=?, Estado=? WHERE ID=?;");
+$resultado = $sentencia-> execute([$nombre, $apellidos, $numero, $correo, $direccion, $servicio, $fecha, $hora, $mensaje, $estado, $id2]);
 
 #validar una direccion en casi de que se actualicen correctamente los datos
 if ($resultado === true) {

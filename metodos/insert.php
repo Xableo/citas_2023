@@ -16,10 +16,6 @@ $apellidos = $_POST['apellidos'];
 $numero = $_POST['numero'];
 $correo = $_POST['correo'];
 $direccion = $_POST['direccion'];
-$equipos = $_POST['equipos'];
-$contraseña = $_POST['contraseña'];
-$rasgos = $_POST['rasgos'];
-$accesorios = $_POST['accesorios'];
 $servicio = $_POST['servicio'];
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
@@ -36,10 +32,10 @@ if ($existeCita > 0) {
     echo 'Ya existe una cita programada para la misma fecha y hora.';
 } else {
     # Insertar el nuevo registro si no hay conflicto
-    $sentencia = $db->prepare("INSERT INTO reservas(nombre, apellidos, numero, correo, direccion, equipos, contraseña, rasgos, accesorios, servicio, fecha, hora, mensajeadicional, estado)
-    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $sentencia = $db->prepare("INSERT INTO reservas(nombre, apellidos, numero, correo, direccion, servicio, fecha, hora, mensajeadicional, estado)
+    VALUES(?,?,?,?,?,?,?,?,?,?)");
     
-    if ($sentencia->execute([$nombre, $apellidos, $numero, $correo, $direccion, $equipos, $contraseña, $rasgos, $accesorios, $servicio, $fecha, $hora, $mensaje, $estado])) {
+    if ($sentencia->execute([$nombre, $apellidos, $numero, $correo, $direccion, $servicio, $fecha, $hora, $mensaje, $estado])) {
         header('Location: ../exito.php'); // Redirigir si la inserción fue exitosa.
     } else {
         echo 'Error al insertar datos.';

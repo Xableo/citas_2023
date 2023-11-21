@@ -52,29 +52,17 @@ $persona = $sentencia->fetch(PDO::FETCH_OBJ);
             </div>
 
             <div class="form-row">
-                <label for="equipos" class="col-form-label">nombre del Equipo:</label>
-                <input type="text" name="equipos" class="form-control" value="<?php echo ($persona->Equipos); ?>">
-            </div>
-
-            <div class="form-row">
-                <label for="contraseña" class="col-form-label">Contraseña del equipo:</label>
-                <input type="text" name="contraseña" class="form-control" value="<?php echo ($persona->Contraseña); ?>">
-            </div>
-
-            <div class="form-row">
-                <label for="rasgos" class="col-form-label">Rasgos y fallas:</label>
-                <input type="text" name="rasgos" class="form-control" value="<?php echo ($persona->Rasgos); ?>">
-            </div>
-
-            <div class="form-row">
-                <label for="accesorios" class="col-form-label">Accesorios:</label>
-                <input type="text" name="accesorios" class="form-control" value="<?php echo ($persona->Accesorios); ?>">
-            </div>
-
-            <div class="form-row">
-                <label for="servicio" class="col-form-label">Servicio:</label>
-                <input type="text" name="servicio" class="form-control" value="<?php echo ($persona->Servicio); ?>">
-            </div>
+            <label for="servicio">Selecciona un servicio: </label>
+                <select class="custom-select" id="servicio" name="servicio" value="<?php echo ($persona->Servicio); ?>">
+                <option value="" selected>Elige...</option>
+                <option value="Instalación de cámaras">Instalación de cámaras</option>
+                <option value="Instalación de cercos eléctricos">Instalación de cercos eléctricos</option>
+                <option value="Instalación de paneles solares">Instalación de paneles solares</option>
+                <option value="Instalación de videoporteros">Instalación de videoporteros - Interfon</option>
+                <option value="Cotización en Domicilios">Cotización en Domicilios</option>
+                <option value="Cotización-Computación e Impresoras">Cotización-Computación e Impresoras</option>
+            </select>           
+        </div>
 
             <div class="form-row">
                 <label for="fecha" class="col-form-label">Fecha:</label>

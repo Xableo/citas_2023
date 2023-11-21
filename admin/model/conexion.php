@@ -1,6 +1,6 @@
 <?php
 #propiedades de host
-$pass='';
+$pass='123456789';
 $user = 'root';
 $namedb = 'citas';
 
